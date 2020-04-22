@@ -31,31 +31,23 @@ def decode_image(file_location):
 
     for x in range(x_size):
         for y in range(y_size):
-            cords = x, y = x, y
-            pix = red_channel.getpixel((1, 1))
+            # cords = x, y = x, y
+            pix = red_channel.getpixel((x, y))
             # print(pix)
             pix = bin(pix)
             # print(pix)
-            print(x,y)
-
+            # print(x,y)
             pix = list(pix)
-            print(pix)
-            p = pix[-1]
-
-            print(p)
-            if p == 0:
-
-                # print("test")
+            # print(pix[3])
+            p = int(pix[-1])
+            # print(p)
+            if p == 1:
+                print(1)
                 pixels[x,y] = (0,0,0)
-
-
             else:
+                print(0)
+                pixels[x,y] = (255,255,255)
 
-                pixels[x,y] = (255,25,255)
-                # print(x,y)
-
-
-    # print("test")
     decoded_image.save("images/decoded_image.png")
 
 
